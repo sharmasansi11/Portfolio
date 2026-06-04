@@ -92,10 +92,10 @@ if (form && typeof emailjs !== "undefined") {
         }
 
         emailjs.sendForm(
-            "service_0gty6tb",
-            "Contact Us",
-            this
-        )
+    "service_0gty6tb",
+    "template_2flskem",
+    this
+)
         .then(() => {
 
             if (statusMessage) {
