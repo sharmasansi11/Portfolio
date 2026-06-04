@@ -334,3 +334,19 @@ button:hover {
 .profile-pic:hover {
     transform: scale(1.05);
 }
+
+.resume-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+
+    background:var(--primary-color);
+    color:white;
+
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.resume-btn:hover{
+    opacity:0.9;
+}
