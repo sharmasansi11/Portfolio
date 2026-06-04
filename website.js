@@ -70,8 +70,10 @@
 
 /* ================= EMAILJS INITIALIZATION ================= */
 
+/* ================= EMAILJS INITIALIZATION ================= */
+
 if (typeof emailjs !== "undefined") {
-emailjs.init("zedhgqqcpgoBItaft");
+    emailjs.init("zedhgqqcpgoBItaft");
 }
 
 /* ================= CONTACT FORM HANDLING ================= */
@@ -81,45 +83,40 @@ const statusMessage = document.getElementById("form-status");
 
 if (form && typeof emailjs !== "undefined") {
 
-```
-form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function (e) {
 
-    e.preventDefault();
-
-    if (statusMessage) {
-        statusMessage.textContent = "Sending message...";
-    }
-
-    emailjs.sendForm(
-        "service_0gty6tb",
-        "Contact Us",
-        this
-    )
-
-    .then(() => {
+        e.preventDefault();
 
         if (statusMessage) {
-            statusMessage.textContent =
-                "Message sent successfully!";
+            statusMessage.textContent = "Sending message...";
         }
 
-        form.reset();
+        emailjs.sendForm(
+            "service_0gty6tb",
+            "Contact Us",
+            this
+        )
+        .then(() => {
 
-    })
+            if (statusMessage) {
+                statusMessage.textContent = "Message sent successfully!";
+            }
 
-    .catch((error) => {
+            form.reset();
 
-        if (statusMessage) {
-            statusMessage.textContent =
-                "Failed to send message. Please try again.";
-        }
+        })
+        .catch((error) => {
 
-        console.error("EmailJS Error:", error);
+            if (statusMessage) {
+                statusMessage.textContent =
+                    "Failed to send message. Please try again.";
+            }
+
+            console.error("EmailJS Error:", error);
+
+        });
 
     });
-
-});
-```
 
 }
 
@@ -132,25 +129,17 @@ const body = document.body;
 
 function applyTheme(theme) {
 
-```
-if (theme === "dark") {
+    if (theme === "dark") {
+        body.setAttribute("data-theme", "dark");
+    }
 
-    body.setAttribute("data-theme", "dark");
+    else if (theme === "light") {
+        body.setAttribute("data-theme", "light");
+    }
 
-}
-
-else if (theme === "light") {
-
-    body.setAttribute("data-theme", "light");
-
-}
-
-else {
-
-    body.removeAttribute("data-theme");
-
-}
-```
+    else {
+        body.removeAttribute("data-theme");
+    }
 
 }
 
@@ -160,13 +149,11 @@ const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme) {
 
-```
-applyTheme(savedTheme);
+    applyTheme(savedTheme);
 
-if (themeSelect) {
-    themeSelect.value = savedTheme;
-}
-```
+    if (themeSelect) {
+        themeSelect.value = savedTheme;
+    }
 
 }
 
@@ -174,16 +161,14 @@ if (themeSelect) {
 
 if (themeSelect) {
 
-```
-themeSelect.addEventListener("change", () => {
+    themeSelect.addEventListener("change", () => {
 
-    const selectedTheme = themeSelect.value;
+        const selectedTheme = themeSelect.value;
 
-    localStorage.setItem("theme", selectedTheme);
+        localStorage.setItem("theme", selectedTheme);
 
-    applyTheme(selectedTheme);
+        applyTheme(selectedTheme);
 
-});
-```
+    });
 
 }
