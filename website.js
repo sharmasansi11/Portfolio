@@ -127,18 +127,34 @@ const body = document.body;
 
 /* Apply theme */
 
+/* Apply theme */
+
 function applyTheme(theme) {
 
     if (theme === "dark") {
+
         body.setAttribute("data-theme", "dark");
+
     }
 
     else if (theme === "light") {
+
         body.setAttribute("data-theme", "light");
+
     }
 
-    else {
-        body.removeAttribute("data-theme");
+    else if (theme === "system") {
+
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+
+            body.setAttribute("data-theme", "dark");
+
+        } else {
+
+            body.setAttribute("data-theme", "light");
+
+        }
+
     }
 
 }
